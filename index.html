@@ -245,6 +245,9 @@ table.data-table th, table.data-table td { padding: 15px; text-align: left; bord
 table.data-table th { background-color: #2980b9; color: white; }
 table.data-table tr:nth-child(even) { background-color: #f2f2f2; }
 
+/* MATH JAX MOCK */
+.math { font-style: italic; font-family: serif; }
+
 /* PRINT SUPPORT */
 @media print {
     body { background-color: white; padding: 0; gap: 0; }
@@ -405,88 +408,142 @@ table.data-table tr:nth-child(even) { background-color: #f2f2f2; }
     <div class="footer-bar"></div>
 </div>
 
-<!-- SLIDE 7: Contoh SD 1 (Pecahan) -->
+<!-- SLIDE 7: Contoh SD 1 (Soal Harbolnas) -->
 <div class="slide-container">
-    <h2 class="slide-title">Contoh SD 1: Bilangan (Pecahan)</h2>
+    <h2 class="slide-title">Contoh SD 1: Bilangan (Real World Problem)</h2>
     <div class="soal-container">
         <!-- Kolom Stimulus -->
         <div class="stimulus-box">
-            <span class="level-badge bg-sd">SD - Level Aplikasi (L2)</span>
-            <img src="http://googleusercontent.com/image_collection/image_retrieval/377764588853719151" class="stimulus-img" alt="Pizza Fractions">
-            <p><strong>Stimulus: "Pesta Pizza"</strong></p>
-            <p style="font-size: 18px;">Ibu membeli <strong>3 loyang pizza</strong> besar. Setiap loyang dipotong menjadi <strong>8 bagian</strong> sama besar.</p>
-            <ul style="font-size: 18px;">
-                <li>Ayah memakan 3 potong.</li>
-                <li>Adik memakan 2 potong.</li>
-                <li>Kakak memakan 4 potong.</li>
+            <span class="level-badge bg-sd">SD - Level Penalaran (L3)</span>
+            <h3 style="margin-top:0;">Stimulus: "Promo Harbolnas"</h3>
+            <p style="font-size: 18px;">Sinta ingin membeli tas baru. Tiga toko online menawarkan promo berbeda untuk model tas yang sama:</p>
+            <ul style="font-size: 18px; background: white; padding: 15px; border-radius: 8px;">
+                <li><strong>Toko X:</strong> Diskon <span style="color:#e74c3c">2/3 harga</span></li>
+                <li><strong>Toko Y:</strong> Diskon <span style="color:#e74c3c">60%</span></li>
+                <li><strong>Toko Z:</strong> Potongan harga <span style="color:#e74c3c">0,65</span></li>
             </ul>
-            <p style="font-size: 18px;">Sisa pizza akan dibagikan kepada 5 tetangga.</p>
+            <p style="font-size: 18px;">Sinta ingin mencari toko yang memberikan potongan harga <strong>paling kecil</strong> (karena curiga barang tiruan).</p>
             <hr>
-            <p><strong>Pertanyaan:</strong><br>Manakah pernyataan yang BENAR?</p>
+            <p><strong>Pertanyaan:</strong><br>Urutan toko dari yang memberikan potongan harga <strong>terkecil ke terbesar</strong> adalah...</p>
         </div>
         <!-- Kolom Bedah Soal -->
         <div class="bedah-box">
             <h3>Analisis Bedah Soal</h3>
-            <p>Soal ini tidak menanyakan <em>"Berapa sisa pizza?"</em> secara langsung, tetapi meminta siswa memvalidasi logika.</p>
+            <p>Soal ini menuntut kemampuan <strong>Konversi & Perbandingan Bilangan Rasional</strong>.</p>
             <ul class="checklist">
-                <li><strong>Opsi A:</strong> "Total pizza yang dimakan adalah lebih dari 1 loyang." <br><span style="color: #e67e22; font-size: 16px;">(Analisis: 3+2+4 = 9 potong. 1 loyang = 8 potong. 9 > 8. <strong>Benar</strong>)</span></li>
-                <li><strong>Opsi B:</strong> "Sisa pizza cukup untuk memberi setiap tetangga 3 potong." <br><span style="color: #e67e22; font-size: 16px;">(Analisis: Total potong 3x8=24. Sisa 24-9=15. Tetangga 5 orang. 15/5 = 3 potong pas. <strong>Benar</strong>)</span></li>
+                <li><strong>Langkah 1: Samakan Bentuk (ke Desimal)</strong>
+                    <br>- Toko X: $2/3 = 0,666... \approx 0,67$
+                    <br>- Toko Y: $60\% = 60/100 = 0,60$
+                    <br>- Toko Z: $0,65$
+                </li>
+                <li><strong>Langkah 2: Mengurutkan (Ascending)</strong>
+                    <br>Urutan dari kecil ke besar:
+                    <br>1. $0,60$ (Toko Y)
+                    <br>2. $0,65$ (Toko Z)
+                    <br>3. $0,67$ (Toko X)
+                </li>
+                <li><strong>Kesimpulan:</strong> Jawabannya adalah <strong>Toko Y, Toko Z, Toko X</strong>. (Opsi D)</li>
             </ul>
-            <p><strong>Poin Kunci:</strong> Siswa harus mengonversi antara satuan "Loyang" dan "Potong".</p>
         </div>
     </div>
     <div class="footer-bar"></div>
 </div>
 
-<!-- SLIDE 8: Contoh SD 2 (Data) -->
+<!-- SLIDE 8: Contoh SD 2 (Soal Grafik Nina) -->
 <div class="slide-container">
-    <h2 class="slide-title">Contoh SD 2: Data & Ketidakpastian</h2>
+    <h2 class="slide-title">Contoh SD 2: Data & Prediksi Pola</h2>
     <div class="soal-container">
-        <div class="stimulus-box">
+        <div class="stimulus-box" style="display: flex; flex-direction: column;">
             <span class="level-badge bg-sd">SD - Level Penalaran (L3)</span>
-            <img src="http://googleusercontent.com/image_collection/image_retrieval/4030755670862527822" class="stimulus-img" alt="Bar Chart Data">
-            <p><strong>Stimulus: "Pengunjung Perpustakaan"</strong></p>
-            <p style="font-size: 18px;">Grafik batang menunjukkan jumlah pengunjung dari Senin hingga Jumat: 20, 25, 30, 35, 40.</p>
+            <h3 style="margin-top:0;">Stimulus: "Proyek Sains Nina"</h3>
+            <p style="font-size: 16px; margin-bottom: 10px;">Grafik pertumbuhan tanaman kacang hijau selama 3 hari pertama:</p>
+            
+            <!-- SVG Graphic Copied from Source -->
+            <div style="text-align: center; flex-grow: 1; background: white; border-radius: 8px; padding: 10px;">
+                <svg width="100%" height="180" viewBox="0 0 300 140" xmlns="http://www.w3.org/2000/svg">
+                    <line x1="30" y1="120" x2="280" y2="120" stroke="#555" stroke-width="2" />
+                    <line x1="30" y1="120" x2="30" y2="10" stroke="#555" stroke-width="2" />
+                    <text x="10" y="120" font-family="Arial" font-size="10" fill="#333">0</text>
+                    <text x="10" y="70" font-family="Arial" font-size="10" fill="#333">0,75</text>
+                    <text x="10" y="20" font-family="Arial" font-size="10" fill="#333">1,5</text>
+                    <g transform="translate(50, 80)">
+                        <rect x="0" y="0" width="30" height="40" fill="#81c784" />
+                        <text x="15" y="-10" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">0,5</text>
+                        <text x="15" y="55" text-anchor="middle" font-family="Arial" font-size="10">Hari 1</text>
+                    </g>
+                    <g transform="translate(110, 60)">
+                        <rect x="0" y="0" width="30" height="60" fill="#66bb6a" />
+                        <text x="15" y="-10" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">0,75</text>
+                        <text x="15" y="75" text-anchor="middle" font-family="Arial" font-size="10">Hari 2</text>
+                    </g>
+                    <g transform="translate(170, 40)">
+                        <rect x="0" y="0" width="30" height="80" fill="#43a047" />
+                        <text x="15" y="-10" text-anchor="middle" font-family="Arial" font-size="10" font-weight="bold">1,0</text>
+                        <text x="15" y="95" text-anchor="middle" font-family="Arial" font-size="10">Hari 3</text>
+                    </g>
+                    <g transform="translate(230, 20)">
+                        <rect x="0" y="0" width="30" height="100" fill="none" stroke="#ff9800" stroke-dasharray="4" />
+                        <text x="15" y="50" text-anchor="middle" font-family="Arial" font-size="20" fill="#ff9800">?</text>
+                        <text x="15" y="115" text-anchor="middle" font-family="Arial" font-size="10" fill="#ff9800">Hari 6</text>
+                    </g>
+                </svg>
+            </div>
             <hr>
-            <p><strong>Pertanyaan:</strong><br>Jika tren kenaikan ini terus berlanjut dengan pola yang sama, berapa prediksi jumlah pengunjung di hari Sabtu?</p>
+            <p><strong>Pertanyaan:</strong> Jika pola pertumbuhan konstan, berapakah tinggi tanaman pada <strong>Hari ke-6</strong>?</p>
         </div>
         <div class="bedah-box">
             <h3>Analisis Bedah Soal</h3>
-            <p>Soal ini menguji kemampuan <strong>"Melihat Pola" (Pattern Recognition)</strong> dari data visual.</p>
+            <p>Soal ini menguji <strong>Ekstrapolasi Data (Prediksi)</strong> berbasis pola linear.</p>
             <ul>
-                <li><strong>Langkah 1:</strong> Baca data dari grafik (Literasi Data).</li>
-                <li><strong>Langkah 2:</strong> Identifikasi selisih antar hari. <br>Selasa-Senin (+5), Rabu-Selasa (+5). Polanya konstan +5.</li>
-                <li><strong>Langkah 3:</strong> Prediksi (Inferensi). <br>Sabtu = Jumat + 5 = 45 siswa.</li>
+                <li><strong>Identifikasi Pola:</strong>
+                    <br>H1 ($0,5$) $\rightarrow$ H2 ($0,75$) = Naik $0,25$
+                    <br>H2 ($0,75$) $\rightarrow$ H3 ($1,0$) = Naik $0,25$
+                    <br><strong>Pola: +0,25 cm/hari</strong>.
+                </li>
+                <li><strong>Kalkulasi Prediksi:</strong>
+                    <br>Hari ke-6 adalah 3 hari setelah Hari ke-3.
+                    <br>Kenaikan = $3 \times 0,25 = 0,75$ cm.
+                    <br>Tinggi H6 = Tinggi H3 + 0,75
+                    <br>$= 1,0 + 0,75 = \mathbf{1,75}$ <strong>cm</strong>.
+                </li>
             </ul>
-            <p><strong>Jebakan:</strong> Siswa sering hanya melihat batang tertinggi (Jumat) tanpa menghitung pola kenaikannya.</p>
         </div>
     </div>
     <div class="footer-bar"></div>
 </div>
 
-<!-- SLIDE 9: Studi Kasus SD (Kompleks) -->
+<!-- SLIDE 9: Studi Kasus SD (Soal Download) -->
 <div class="slide-container">
-    <h2 class="slide-title">Studi Kasus SD: "Susu Kedelai Pak Bondan"</h2>
+    <h2 class="slide-title">Studi Kasus SD: "Mengunduh Materi"</h2>
     <div class="content-area">
         <div class="two-column top-align">
             <div class="case-study-box">
-                <span class="tag math">Matematika SD</span> <span class="tag hots">L3 Reasoning</span>
+                <span class="tag math">Matematika SD</span> <span class="tag hots">PGK - Kategori</span>
                 <h3>Stimulus Soal</h3>
-                <p>Pak Bondan memiliki <strong>9 wadah</strong> susu kedelai, masing-masing berisi <strong>4¾ liter</strong>.</p>
-                <p>Susu akan dituang ke botol besar dan kecil dengan rasio tertentu.</p>
-                <div style="text-align: center; margin: 20px;">
-                    <img src="http://googleusercontent.com/image_collection/image_retrieval/4773139511614475577" style="height: 150px; border-radius: 10px;" alt="Botol Susu">
-                </div>
-                <p><strong>Tugas Siswa (PGK Kategori):</strong><br>Verifikasi kebenaran 3 Pernyataan (Total produksi, Volume per botol, Sisa volume).</p>
+                <p>Andi mengunduh 3 video materi pelajaran dengan ukuran sama. Progres unduhan saat ini:</p>
+                <ul style="background: white; padding: 15px; border-radius: 8px; font-size: 18px;">
+                    <li>Matematika: <strong>7/8 bagian</strong></li>
+                    <li>IPA: <strong>0,85 bagian</strong></li>
+                    <li>B. Indonesia: <strong>82% bagian</strong></li>
+                </ul>
+                <p><strong>Tugas Siswa (Benar/Salah):</strong></p>
+                <table class="data-table" style="font-size: 16px; margin-top: 10px;">
+                    <tr><th style="padding:5px;">Pernyataan</th><th style="padding:5px;">B/S</th></tr>
+                    <tr><td style="padding:5px;">Video Matematika paling mendekati selesai.</td><td style="padding:5px;">...</td></tr>
+                    <tr><td style="padding:5px;">Sisa video B. Indo < 0,15 bagian.</td><td style="padding:5px;">...</td></tr>
+                </table>
             </div>
             <div class="analysis-box">
                 <h3>Analisis Pedagogis</h3>
-                <p><strong>Kenapa ini HOTS?</strong></p>
-                <ul>
-                    <li><strong>Multi-step:</strong> Siswa tidak bisa langsung menebak. Harus menghitung total volume dulu (9 × 4.75), lalu membagi sesuai rasio.</li>
-                    <li><strong>Ketergantungan Logis:</strong> Kesalahan di langkah awal (menghitung total) akan membuat validasi pernyataan berikutnya salah.</li>
-                    <li><strong>Resiliensi:</strong> Menguji ketahanan siswa dalam memproses angka pecahan campuran.</li>
-                </ul>
+                <p>Soal ini kompleks karena:</p>
+                <ol>
+                    <li><strong>Multi-Format:</strong> Siswa harus mengubah 7/8 menjadi desimal (0,875) dan 82% menjadi 0,82 untuk membandingkan.</li>
+                    <li><strong>Logika Negasi (Sisa):</strong> Pernyataan kedua menanyakan "Sisa", bukan yang sudah terunduh.
+                        <br>Sisa B. Indo = $100\% - 82\% = 18\% = 0,18$.
+                        <br>Apakah $0,18 < 0,15$? <strong>SALAH</strong>.
+                    </li>
+                    <li><strong>Presisi:</strong> Membedakan $0,875$ (MTK) dan $0,85$ (IPA). Selisih tipis menuntut ketelitian.</li>
+                </ol>
             </div>
         </div>
     </div>
