@@ -1,0 +1,722 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Training Lengkap TKA - Matematika</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+/* CORE SETUP */
+* { box-sizing: border-box; }
+body {
+    background-color: #e0e5ec;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 40px; /* Jarak antar slide */
+    margin: 0;
+    padding: 40px 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+/* SLIDE CONTAINER - 16:9 Aspect Ratio Fixed */
+.slide-container {
+    background-color: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 15px 30px rgba(0,0,0,0.1);
+    width: 1280px;
+    height: 720px;
+    position: relative;
+    overflow: hidden;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    page-break-after: always; /* Untuk print PDF */
+    flex-shrink: 0;
+}
+
+/* BRANDING & LOGOS */
+.logo-header {
+    position: absolute;
+    top: 40px;
+    right: 50px;
+    display: flex;
+    align-items: center;
+    gap: 25px;
+    z-index: 10;
+}
+.logo-header img {
+    height: 60px;
+    object-fit: contain;
+}
+
+.footer-bar {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 12px;
+    background: linear-gradient(90deg, #3cb4e5 0%, #16cdce 50%, #ff6b00 100%);
+}
+
+/* TYPOGRAPHY */
+h1 {
+    font-family: 'Open Sans', sans-serif;
+    color: #2c3e50;
+    font-size: 58px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    line-height: 1.1;
+}
+h2.slide-title {
+    font-family: 'Open Sans', sans-serif;
+    color: #2980b9;
+    font-size: 42px;
+    font-weight: 600;
+    margin-bottom: 30px;
+    border-bottom: 3px solid #f39c12;
+    padding-bottom: 10px;
+    display: inline-block;
+}
+h3 {
+    color: #34495e;
+    font-size: 28px;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+p, li {
+    font-size: 20px;
+    color: #555;
+    line-height: 1.6;
+    margin-bottom: 15px;
+}
+strong { color: #2c3e50; font-weight: 700; }
+
+/* LAYOUT UTILITIES */
+.content-area {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+.two-column {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 50px;
+    align-items: center;
+    height: 100%;
+}
+.two-column.top-align { align-items: start; }
+
+.tiled-content {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    width: 100%;
+}
+.tile {
+    background: #f8f9fa;
+    border-left: 5px solid #3cb4e5;
+    padding: 25px;
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+}
+.tile-icon {
+    font-size: 40px;
+    color: #3cb4e5;
+    margin-bottom: 15px;
+}
+
+/* CASE STUDY STYLES */
+.soal-container {
+    display: grid;
+    grid-template-columns: 45% 55%;
+    gap: 40px;
+    height: 100%;
+    align-items: start;
+}
+.stimulus-box {
+    background-color: #f4f6f7;
+    border: 1px solid #dcdcdc;
+    border-radius: 12px;
+    padding: 25px;
+    height: 100%;
+    overflow-y: auto;
+}
+.stimulus-img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    margin-bottom: 20px;
+}
+/* Special fit for tables/graphs */
+.stimulus-img.contain {
+    object-fit: contain;
+    background: white;
+}
+
+.bedah-box {
+    background-color: #eef7fb;
+    border: 2px solid #3cb4e5;
+    border-radius: 12px;
+    padding: 25px;
+    height: 100%;
+    overflow-y: auto;
+}
+.case-study-box { /* For simpler layouts */
+    background-color: #eef7fb;
+    border: 2px solid #b3d7ff;
+    border-radius: 15px;
+    padding: 30px;
+    height: 100%;
+}
+.analysis-box {
+    background-color: #fff8e1;
+    border: 2px solid #ffe082;
+    border-radius: 15px;
+    padding: 30px;
+    height: 100%;
+}
+
+.level-badge {
+    display: inline-block;
+    padding: 6px 15px;
+    border-radius: 50px;
+    color: white;
+    font-size: 14px;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+.bg-sd { background-color: #f39c12; }
+.bg-smp { background-color: #2980b9; }
+
+.tag {
+    display: inline-block;
+    padding: 5px 12px;
+    border-radius: 20px;
+    font-size: 14px;
+    font-weight: bold;
+    color: white;
+    margin-bottom: 10px;
+}
+.tag.hots { background-color: #e74c3c; }
+.tag.math { background-color: #2980b9; }
+
+/* LIST STYLES */
+ul.checklist {
+    list-style: none;
+    padding: 0;
+}
+ul.checklist li {
+    position: relative;
+    padding-left: 30px;
+    margin-bottom: 10px;
+}
+ul.checklist li:before {
+    content: '\f00c';
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    position: absolute;
+    left: 0;
+    color: #27ae60;
+}
+
+/* IMAGES GENERAL */
+.img-wrapper {
+    width: 100%;
+    height: 400px;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+}
+.img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* TABLES */
+table.data-table { width: 100%; border-collapse: collapse; margin-top: 20px; }
+table.data-table th, table.data-table td { padding: 15px; text-align: left; border-bottom: 1px solid #ddd; font-size: 18px; }
+table.data-table th { background-color: #2980b9; color: white; }
+table.data-table tr:nth-child(even) { background-color: #f2f2f2; }
+
+/* PRINT SUPPORT */
+@media print {
+    body { background-color: white; padding: 0; gap: 0; }
+    .slide-container { box-shadow: none; margin: 0; border: 1px solid #eee; }
+}
+
+</style>
+</head>
+<body>
+
+<!-- ==================== BAGIAN 1: PENDAHULUAN & KONSEP ==================== -->
+
+<!-- SLIDE 1: Judul Utama -->
+<div class="slide-container">
+    <div class="logo-header" style="top: auto; bottom: 60px; right: 60px;">
+        <!-- Logos -->
+    </div>
+    <div style="text-align: center; margin-top: 40px;">
+         <div style="display: flex; justify-content: center; gap: 40px; margin-bottom: 40px;">
+            <img src="https://imgix3.ruangguru.com/assets/miscellaneous/png_zekej2_3984.png" style="height: 80px;" alt="Ruangguru Logo">
+            <img src="https://imgix3.ruangguru.com/assets/miscellaneous/png_9kguln_7180.png" style="height: 80px;" alt="Al Irsyad Logo">
+        </div>
+        <h1 style="font-size: 64px; color: #2c3e50;">Analisis Komprehensif<br>Kerangka Asesmen TKA</h1>
+        <h2 style="font-size: 36px; color: #7f8c8d; font-weight: 300; border: none;">Fokus: Literasi Numerasi (Matematika)</h2>
+        <div style="margin-top: 50px; background: #eef7fb; display: inline-block; padding: 15px 40px; border-radius: 50px;">
+            <p style="margin: 0; color: #2980b9; font-weight: bold;">Training For Trainers & Guru (Jenjang SD & SMP)</p>
+        </div>
+    </div>
+    <div class="footer-bar"></div>
+</div>
+
+<!-- SLIDE 2: Konteks Masalah -->
+<div class="slide-container">
+    <div class="logo-header">
+        <img src="https://imgix3.ruangguru.com/assets/miscellaneous/png_zekej2_3984.png" alt="Ruangguru">
+        <img src="https://imgix3.ruangguru.com/assets/miscellaneous/png_9kguln_7180.png" alt="Al Irsyad">
+    </div>
+    <h2 class="slide-title">Evolusi Lanskap Asesmen</h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div>
+                <h3>Dari Sistem ke Individu</h3>
+                <p>Pasca penghapusan Ujian Nasional (UN), terjadi kekosongan data prestasi individual yang terstandar. <strong>Asesmen Nasional (AN)</strong> hanya memotret mutu sekolah, bukan siswa.</p>
+                <div style="background: #fff8e1; padding: 20px; border-left: 5px solid #f39c12; margin-top: 20px;">
+                    <strong>Masalah:</strong> Inflasi nilai rapor dan disparitas standar penilaian antar sekolah menyulitkan seleksi PPDB yang adil.
+                </div>
+                <p style="margin-top: 20px;"><strong>Solusi (TKA):</strong> Alat ukur terstandar (Opsional) untuk validasi kemampuan akademik individu.</p>
+            </div>
+            <div class="img-wrapper">
+                <img src="http://googleusercontent.com/image_collection/image_retrieval/6260851525098674782" alt="Siswa ujian CBT">
+            </div>
+        </div>
+    </div>
+    <div class="footer-bar"></div>
+</div>
+
+<!-- SLIDE 3: Filosofi -->
+<div class="slide-container">
+    <h2 class="slide-title">Filosofi & Tujuan Strategis</h2>
+    <div class="content-area">
+        <div class="tiled-content">
+            <div class="tile">
+                <div class="tile-icon"><i class="fa-solid fa-brain"></i></div>
+                <h3>Kompetensi vs Hafalan</h3>
+                <p>TKA dirancang untuk meminimalisir <em>curriculum narrowing</em>. Soal berbasis stimulus kompleks memaksa pergeseran dari hafalan mekanis menuju <strong>penalaran konseptual</strong>.</p>
+            </div>
+            <div class="tile">
+                <div class="tile-icon"><i class="fa-solid fa-scale-balanced"></i></div>
+                <h3>Keadilan Seleksi (PPDB)</h3>
+                <p>Menyediakan skor terstandar yang <em>comparable</em> untuk PPDB Jalur Prestasi, menghilangkan bias subjektivitas nilai rapor.</p>
+            </div>
+            <div class="tile">
+                <div class="tile-icon"><i class="fa-solid fa-certificate"></i></div>
+                <h3>Penyetaraan Pendidikan</h3>
+                <p>Memberikan pengakuan valid bagi siswa <strong>Homeschooling</strong> dan <strong>PKBM (Paket A/B)</strong> yang tidak memiliki rapor formal sekolah reguler.</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bar"></div>
+</div>
+
+<!-- SLIDE 4: Desain Psikometrik -->
+<div class="slide-container">
+    <h2 class="slide-title">Desain Psikometrik: Bentuk Soal</h2>
+    <div class="content-area">
+        <p>TKA meninggalkan format Pilihan Ganda tunggal yang kaku demi menangkap kompleksitas berpikir.</p>
+        <div class="tiled-content" style="grid-template-columns: 1fr 1fr;">
+            <div class="tile" style="border-left-color: #27ae60;">
+                <h3 style="color: #27ae60;">Pilihan Ganda Kompleks (PGK)</h3>
+                <p><strong>Multiple Answer (MCMA):</strong> Siswa memilih <em>semua</em> jawaban benar. Menghilangkan faktor tebakan (guessing).</p>
+                <hr>
+                <p><strong>Model Kategori:</strong> Menentukan status pernyataan (Benar/Salah, Sesuai/Tidak Sesuai). Menguji kemampuan validasi proposisi.</p>
+            </div>
+            <div class="tile" style="border-left-color: #8e44ad;">
+                <h3 style="color: #8e44ad;">Struktur Stimulus (Testlet)</h3>
+                <p><strong>Soal Grup:</strong> Satu stimulus kompleks (infografis/wacana/data tabel) digunakan untuk beberapa pertanyaan sekaligus.</p>
+                <hr>
+                <p><em>Implikasi:</em> Efisiensi waktu membaca, namun menuntut kemampuan menggali informasi mendalam (Deep Reading/Data Mining).</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bar"></div>
+</div>
+
+<!-- SLIDE 5: Level Kognitif -->
+<div class="slide-container">
+    <h2 class="slide-title">Level Kognitif Matematika</h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div>
+                <ul style="list-style: none; padding: 0;">
+                    <li style="background: #e3f2fd; padding: 15px; border-radius: 8px; margin-bottom: 10px;">
+                        <strong style="color: #2980b9;">L1: Knowing (Pemahaman)</strong><br>
+                        Mengingat fakta, identifikasi objek, hitungan rutin. Fondasi operasional dasar.
+                    </li>
+                    <li style="background: #fff3e0; padding: 15px; border-radius: 8px; margin-bottom: 10px;">
+                        <strong style="color: #e67e22;">L2: Applying (Aplikasi)</strong><br>
+                        Menyelesaikan masalah rutin. Pemodelan cerita ke kalimat matematika (Word Problems) dan interpretasi data sederhana.
+                    </li>
+                    <li style="background: #ffebee; padding: 15px; border-radius: 8px;">
+                        <strong style="color: #c0392b;">L3: Reasoning (Penalaran - HOTS)</strong><br>
+                        Analisis hubungan antar konsep, evaluasi strategi, generalisasi pola, dan pemecahan masalah <em>non-rutin</em> (novel problems).
+                    </li>
+                </ul>
+            </div>
+            <div class="img-wrapper">
+                <img src="http://googleusercontent.com/image_collection/image_retrieval/18260795967979529884" alt="Ilustrasi Berpikir Kritis">
+            </div>
+        </div>
+    </div>
+    <div class="footer-bar"></div>
+</div>
+
+<!-- ==================== BAGIAN 2: MATERI SD & CONTOH ==================== -->
+
+<!-- SLIDE 6: Lingkup SD -->
+<div class="slide-container">
+    <h2 class="slide-title">1. Deep Dive: Matematika SD/MI</h2>
+    <div class="content-area">
+        <div class="tiled-content">
+            <div class="tile">
+                <div class="tile-icon"><i class="fa-solid fa-arrow-down-1-9"></i></div>
+                <h3>Bilangan (Numbers)</h3>
+                <p>Cacah, Pecahan (desimal, persen), KPK/FPB. Fokus pada <strong>Nilai Tempat</strong> dan relasi, bukan sekadar hitungan susun.</p>
+            </div>
+            <div class="tile">
+                <div class="tile-icon"><i class="fa-solid fa-shapes"></i></div>
+                <h3>Geometri & Pengukuran</h3>
+                <p>Visualisasi Spasial (membayangkan bentuk dari berbagai sisi). Konversi satuan dalam konteks (resep, debit air).</p>
+            </div>
+            <div class="tile">
+                <div class="tile-icon"><i class="fa-solid fa-chart-pie"></i></div>
+                <h3>Data</h3>
+                <p>Literasi Data: Membaca piktogram & diagram batang. Kompetensi: <strong>Mengambil keputusan</strong> berdasarkan data.</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bar"></div>
+</div>
+
+<!-- SLIDE 7: Contoh SD 1 (Pecahan) -->
+<div class="slide-container">
+    <h2 class="slide-title">Contoh SD 1: Bilangan (Pecahan)</h2>
+    <div class="soal-container">
+        <!-- Kolom Stimulus -->
+        <div class="stimulus-box">
+            <span class="level-badge bg-sd">SD - Level Aplikasi (L2)</span>
+            <img src="http://googleusercontent.com/image_collection/image_retrieval/377764588853719151" class="stimulus-img" alt="Pizza Fractions">
+            <p><strong>Stimulus: "Pesta Pizza"</strong></p>
+            <p style="font-size: 18px;">Ibu membeli <strong>3 loyang pizza</strong> besar. Setiap loyang dipotong menjadi <strong>8 bagian</strong> sama besar.</p>
+            <ul style="font-size: 18px;">
+                <li>Ayah memakan 3 potong.</li>
+                <li>Adik memakan 2 potong.</li>
+                <li>Kakak memakan 4 potong.</li>
+            </ul>
+            <p style="font-size: 18px;">Sisa pizza akan dibagikan kepada 5 tetangga.</p>
+            <hr>
+            <p><strong>Pertanyaan:</strong><br>Manakah pernyataan yang BENAR?</p>
+        </div>
+        <!-- Kolom Bedah Soal -->
+        <div class="bedah-box">
+            <h3>Analisis Bedah Soal</h3>
+            <p>Soal ini tidak menanyakan <em>"Berapa sisa pizza?"</em> secara langsung, tetapi meminta siswa memvalidasi logika.</p>
+            <ul class="checklist">
+                <li><strong>Opsi A:</strong> "Total pizza yang dimakan adalah lebih dari 1 loyang." <br><span style="color: #e67e22; font-size: 16px;">(Analisis: 3+2+4 = 9 potong. 1 loyang = 8 potong. 9 > 8. <strong>Benar</strong>)</span></li>
+                <li><strong>Opsi B:</strong> "Sisa pizza cukup untuk memberi setiap tetangga 3 potong." <br><span style="color: #e67e22; font-size: 16px;">(Analisis: Total potong 3x8=24. Sisa 24-9=15. Tetangga 5 orang. 15/5 = 3 potong pas. <strong>Benar</strong>)</span></li>
+            </ul>
+            <p><strong>Poin Kunci:</strong> Siswa harus mengonversi antara satuan "Loyang" dan "Potong".</p>
+        </div>
+    </div>
+    <div class="footer-bar"></div>
+</div>
+
+<!-- SLIDE 8: Contoh SD 2 (Data) -->
+<div class="slide-container">
+    <h2 class="slide-title">Contoh SD 2: Data & Ketidakpastian</h2>
+    <div class="soal-container">
+        <div class="stimulus-box">
+            <span class="level-badge bg-sd">SD - Level Penalaran (L3)</span>
+            <img src="http://googleusercontent.com/image_collection/image_retrieval/4030755670862527822" class="stimulus-img" alt="Bar Chart Data">
+            <p><strong>Stimulus: "Pengunjung Perpustakaan"</strong></p>
+            <p style="font-size: 18px;">Grafik batang menunjukkan jumlah pengunjung dari Senin hingga Jumat: 20, 25, 30, 35, 40.</p>
+            <hr>
+            <p><strong>Pertanyaan:</strong><br>Jika tren kenaikan ini terus berlanjut dengan pola yang sama, berapa prediksi jumlah pengunjung di hari Sabtu?</p>
+        </div>
+        <div class="bedah-box">
+            <h3>Analisis Bedah Soal</h3>
+            <p>Soal ini menguji kemampuan <strong>"Melihat Pola" (Pattern Recognition)</strong> dari data visual.</p>
+            <ul>
+                <li><strong>Langkah 1:</strong> Baca data dari grafik (Literasi Data).</li>
+                <li><strong>Langkah 2:</strong> Identifikasi selisih antar hari. <br>Selasa-Senin (+5), Rabu-Selasa (+5). Polanya konstan +5.</li>
+                <li><strong>Langkah 3:</strong> Prediksi (Inferensi). <br>Sabtu = Jumat + 5 = 45 siswa.</li>
+            </ul>
+            <p><strong>Jebakan:</strong> Siswa sering hanya melihat batang tertinggi (Jumat) tanpa menghitung pola kenaikannya.</p>
+        </div>
+    </div>
+    <div class="footer-bar"></div>
+</div>
+
+<!-- SLIDE 9: Studi Kasus SD (Kompleks) -->
+<div class="slide-container">
+    <h2 class="slide-title">Studi Kasus SD: "Susu Kedelai Pak Bondan"</h2>
+    <div class="content-area">
+        <div class="two-column top-align">
+            <div class="case-study-box">
+                <span class="tag math">Matematika SD</span> <span class="tag hots">L3 Reasoning</span>
+                <h3>Stimulus Soal</h3>
+                <p>Pak Bondan memiliki <strong>9 wadah</strong> susu kedelai, masing-masing berisi <strong>4¾ liter</strong>.</p>
+                <p>Susu akan dituang ke botol besar dan kecil dengan rasio tertentu.</p>
+                <div style="text-align: center; margin: 20px;">
+                    <img src="http://googleusercontent.com/image_collection/image_retrieval/4773139511614475577" style="height: 150px; border-radius: 10px;" alt="Botol Susu">
+                </div>
+                <p><strong>Tugas Siswa (PGK Kategori):</strong><br>Verifikasi kebenaran 3 Pernyataan (Total produksi, Volume per botol, Sisa volume).</p>
+            </div>
+            <div class="analysis-box">
+                <h3>Analisis Pedagogis</h3>
+                <p><strong>Kenapa ini HOTS?</strong></p>
+                <ul>
+                    <li><strong>Multi-step:</strong> Siswa tidak bisa langsung menebak. Harus menghitung total volume dulu (9 × 4.75), lalu membagi sesuai rasio.</li>
+                    <li><strong>Ketergantungan Logis:</strong> Kesalahan di langkah awal (menghitung total) akan membuat validasi pernyataan berikutnya salah.</li>
+                    <li><strong>Resiliensi:</strong> Menguji ketahanan siswa dalam memproses angka pecahan campuran.</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bar"></div>
+</div>
+
+<!-- ==================== BAGIAN 3: MATERI SMP & CONTOH ==================== -->
+
+<!-- SLIDE 10: Lingkup SMP -->
+<div class="slide-container">
+    <h2 class="slide-title">2. Deep Dive: Matematika SMP/MTs</h2>
+    <div class="content-area">
+        <p>Transisi dari aritmetika konkret ke <strong>aljabar abstrak</strong> dan probabilitas.</p>
+        <div class="tiled-content">
+            <div class="tile">
+                <h3>Aljabar & Fungsi</h3>
+                <p>Memodelkan masalah sehari-hari (tarif taksi, biaya produksi) ke persamaan linear (SPLDV). Konsep Domain, Kodomain, Range.</p>
+            </div>
+            <div class="tile">
+                <h3>Geometri Lanjut</h3>
+                <p>Bangun Ruang Sisi Lengkung (Tabung, Kerucut, Bola). Masalah optimasi volume dan luas permukaan (efisiensi bahan).</p>
+            </div>
+            <div class="tile">
+                <h3>Data & Peluang</h3>
+                <p>Statistika Deskriptif (Mean vs Median pada data outlier). Peluang empiris vs teoretis.</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bar"></div>
+</div>
+
+<!-- SLIDE 11: Contoh SMP 1 (Pola Meja - New) -->
+<div class="slide-container">
+    <h2 class="slide-title">Contoh SMP 1: Pola & Generalisasi (Aljabar)</h2>
+    <div class="soal-container">
+        <div class="stimulus-box">
+            <span class="level-badge bg-smp">SMP - Level Penalaran (L3)</span>
+            <img src="https://images2.imgbox.com/0d/0f/cF64z1Xa_o.jpg" class="stimulus-img contain" alt="Pola Meja Restoran">
+            <p><strong>Stimulus: "Penyusunan Meja Restoran"</strong></p>
+            <p style="font-size: 18px;">Sebuah restoran menyusun meja persegi dengan pola memanjang seperti gambar di atas. Diketahui <strong>$x$</strong> adalah banyak meja dan <strong>$y$</strong> adalah banyak kursi.</p>
+            <hr>
+            <p><strong>Pertanyaan (Pilihan Ganda Kompleks):</strong><br>Manakah analisis pola berikut yang BENAR?</p>
+            <div style="background: white; padding: 10px; border-radius: 8px; font-size: 16px;">
+                <div style="margin-bottom: 8px;"><i class="fa-solid fa-check-square" style="color: #27ae60;"></i> Persamaan garis lurus pola tersebut adalah $y = 2x + 2$.</div>
+                <div style="margin-bottom: 8px;"><i class="fa-solid fa-check-square" style="color: #27ae60;"></i> Setiap penambahan 1 meja, kursi bertambah 2 buah.</div>
+                <div style="margin-bottom: 8px; color: #e74c3c;"><i class="fa-solid fa-xmark"></i> Jika disusun 10 meja, akan memuat 40 kursi.</div>
+                <div style="margin-bottom: 8px;"><i class="fa-solid fa-check-square" style="color: #27ae60;"></i> Untuk menampung 22 orang, dibutuhkan 10 meja.</div>
+            </div>
+        </div>
+        <div class="bedah-box">
+            <h3>Analisis Bedah Soal</h3>
+            <p>Soal ini menguji kemampuan <strong>Generalisasi Pola</strong> menjadi rumus Aljabar Linear.</p>
+            <ul class="checklist">
+                <li><strong>Analisis Pola (Barisan Aritmatika):</strong>
+                    <br>1 meja = 4 kursi
+                    <br>2 meja = 6 kursi (tambah 2)
+                    <br>3 meja = 8 kursi (tambah 2)
+                    <br><strong>Beda (b) = 2</strong>.
+                </li>
+                <li><strong>Generalisasi Rumus:</strong>
+                    <br>Rumus dasar: $U_n = a + (n-1)b$
+                    <br>$y = 4 + (x-1)2 \Rightarrow y = 4 + 2x - 2 \Rightarrow \mathbf{y = 2x + 2}$. <span style="color:#27ae60"><strong>(BENAR)</strong></span></li>
+                <li><strong>Verifikasi Logika:</strong>
+                    <br>- Jika $x=10$ meja: $y = 2(10)+2 = 22$ kursi. (Opsi "40 kursi" Salah).
+                    <br>- Jika $y=22$ orang: $22 = 2x+2 \Rightarrow 20=2x \Rightarrow x=10$. <span style="color:#27ae60"><strong>(BENAR)</strong></span></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bar"></div>
+</div>
+
+<!-- SLIDE 12: Contoh SMP 2 (Optimasi Cat) -->
+<div class="slide-container">
+    <h2 class="slide-title">Contoh SMP 2: "Optimalisasi Cat Pak Doni"</h2>
+    <div class="content-area">
+        <div class="two-column top-align">
+            <div class="case-study-box">
+                <span class="tag math">SMP</span> <span class="tag hots">Computational Thinking</span>
+                <h3>Stimulus Soal</h3>
+                <p>Pak Doni mengecat dinding (gabungan persegi panjang & segitiga). Ada 4 Merek Cat dengan daya sebar (m²/kg) dan ukuran kaleng berbeda.</p>
+                <p><strong>Tantangan:</strong> Pilih merek cat agar <strong>sisa cat paling sedikit</strong> (efisiensi).</p>
+                <div style="background: #fff; padding: 10px; border-radius: 5px; font-size: 14px;">
+                    <em>Data: Luas Dinding, Daya Sebar A/B/C/D, Ukuran Kaleng A/B/C/D.</em>
+                </div>
+            </div>
+            <div class="analysis-box">
+                <h3>Analisis Pedagogis</h3>
+                <p>Soal ini adalah klasik <strong>Optimization Problem</strong>.</p>
+                <ol>
+                    <li><strong>Geometri:</strong> Hitung luas dinding gabungan.</li>
+                    <li><strong>Rasio:</strong> Bagi luas dengan daya sebar per merek.</li>
+                    <li><strong>Constraint (Batasan):</strong> Sesuaikan kebutuhan dengan ukuran kaleng (misal: butuh 4.5kg, kaleng cuma 5kg -> sisa 0.5kg).</li>
+                    <li><strong>Decision Making:</strong> Bandingkan sisa 4 opsi.</li>
+                </ol>
+                <p>Siswa tidak hanya menghitung, tapi <strong>mengambil keputusan</strong>.</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bar"></div>
+</div>
+
+<!-- SLIDE 13: Contoh SMP 3 (Geometri Tangki) -->
+<div class="slide-container">
+    <h2 class="slide-title">Contoh SMP 3: Geometri & Perubahan</h2>
+    <div class="soal-container">
+        <div class="stimulus-box">
+            <span class="level-badge bg-smp">SMP - Level Penalaran (L3)</span>
+            <img src="http://googleusercontent.com/image_collection/image_retrieval/16742984624737825541" class="stimulus-img" alt="Water Tank Geometry">
+            <p><strong>Stimulus: "Pengisian Tangki Air"</strong></p>
+            <p style="font-size: 18px;">Sebuah tangki air berbentuk <strong>Tabung</strong> memiliki diameter 14 dm dan tinggi 20 dm. Air diisi dengan debit 10 liter/menit.</p>
+            <hr>
+            <p><strong>Pertanyaan (PGK Kategori):</strong><br>Tentukan Benar/Salah pernyataan berikut:</p>
+            <ol style="font-size: 16px; margin-left: 20px;">
+                <li>Volume total tangki adalah 3.080 liter.</li>
+                <li>Dibutuhkan waktu lebih dari 5 jam untuk mengisi penuh.</li>
+            </ol>
+        </div>
+        <div class="bedah-box">
+            <h3>Analisis Bedah Soal</h3>
+            <p>Menguji konsep <strong>Volume, Konversi Satuan, dan Debit</strong>.</p>
+            <ul>
+                <li><strong>Pernyataan 1:</strong> Volume = πr²t. <br>r=7dm. V = (22/7)×7×7×20 = 3080 dm³ = 3080 liter. <span style="color:#27ae60"><strong>(BENAR)</strong></span></li>
+                <li><strong>Pernyataan 2:</strong> Waktu = Volume / Debit. <br>3080 / 10 = 308 menit. <br>Konversi ke jam: 308/60 = 5 jam 8 menit. <br>Lebih dari 5 jam? <span style="color:#27ae60"><strong>(BENAR)</strong></span></li>
+            </ul>
+        </div>
+    </div>
+    <div class="footer-bar"></div>
+</div>
+
+<!-- ==================== BAGIAN 4: PENUTUP ==================== -->
+
+<!-- SLIDE 14: Jadwal & Teknis -->
+<div class="slide-container">
+    <h2 class="slide-title">Jadwal & Teknis Pelaksanaan</h2>
+    <div class="content-area">
+        <div class="two-column">
+            <div>
+                <h3>Timeline (Periode 2025-2026)</h3>
+                <table class="data-table">
+                    <tr>
+                        <th>Kegiatan</th>
+                        <th>Waktu (SD & SMP)</th>
+                    </tr>
+                    <tr>
+                        <td>Simulasi & Sinkronisasi</td>
+                        <td>Januari - Februari 2026</td>
+                    </tr>
+                    <tr>
+                        <td>Gladi Bersih</td>
+                        <td>Februari - Maret 2026</td>
+                    </tr>
+                    <tr>
+                        <td><strong>Pelaksanaan Utama</strong></td>
+                        <td><strong>Maret - April 2026</strong></td>
+                    </tr>
+                </table>
+            </div>
+            <div style="background: #f4f6f7; padding: 30px; border-radius: 12px;">
+                <h3>Teknis Harian</h3>
+                <ul style="font-size: 22px;">
+                    <li><i class="fa-solid fa-desktop"></i> <strong>Moda:</strong> Computer Based Test (CBT) Daring/Semi-Daring.</li>
+                    <li><i class="fa-solid fa-clock"></i> <strong>Durasi Matematika:</strong> 60 Menit.</li>
+                    <li><i class="fa-solid fa-layer-group"></i> <strong>Sesi:</strong> 3 Sesi/hari (Pagi, Siang, Sore).</li>
+                    <li><i class="fa-solid fa-money-bill-wave"></i> <strong>Biaya:</strong> Gratis (APBN/APBD).</li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bar"></div>
+</div>
+
+<!-- SLIDE 15: Dampak -->
+<div class="slide-container">
+    <h2 class="slide-title">Dampak & Mitigasi: "Teaching to the Test"</h2>
+    <div class="content-area">
+        <div class="two-column">
+             <div class="img-wrapper" style="height: 350px;">
+                <img src="http://googleusercontent.com/image_collection/image_retrieval/5526503406307900483" alt="Guru mengajar di kelas">
+            </div>
+            <div>
+                <h3>Paradoks Washback Effect</h3>
+                <p>Regulasi mengakui risiko guru hanya mengajarkan materi ujian. Namun, karena soal TKA bersifat <strong>Kontekstual & Nalar</strong>:</p>
+                <div style="background: #d4edda; color: #155724; padding: 20px; border-radius: 8px; margin: 20px 0;">
+                    <i class="fa-solid fa-check-circle"></i> "Teaching to the Test" dalam TKA = <strong>Mengajarkan Bernalar.</strong>
+                </div>
+                <p>Jika guru melatih siswa mengerjakan soal tipe "Cat Pak Doni", maka kualitas pembelajaran otomatis meningkat (bukan sekadar drill rumus cepat/cara cadas).</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bar"></div>
+</div>
+
+<!-- SLIDE 16: Rekomendasi -->
+<div class="slide-container">
+    <h2 class="slide-title">Rekomendasi Praktis untuk Guru</h2>
+    <div class="content-area">
+        <div class="tiled-content">
+            <div class="tile" style="border-left-color: #f39c12;">
+                <h3>1. Integrasi Dini</h3>
+                <p>Jangan menunggu kelas akhir. Masukkan soal tipe Pilihan Ganda Kompleks (PGK) dalam <strong>Ulangan Harian</strong> sejak awal semester.</p>
+            </div>
+            <div class="tile" style="border-left-color: #e74c3c;">
+                <h3>2. Ubah Pola Ajar</h3>
+                <p>Kurangi "Drilling Rumus". Perbanyak bedah kasus nyata. Tanyakan <em>"Mengapa?"</em> dan <em>"Bagaimana jika angkanya diubah?"</em>.</p>
+            </div>
+            <div class="tile" style="border-left-color: #3498db;">
+                <h3>3. Literasi Membaca di Math</h3>
+                <p>Latih siswa membaca soal cerita panjang (Reading Endurance). Kesalahan matematika seringkali berawal dari kegagalan memahami teks soal.</p>
+            </div>
+        </div>
+    </div>
+    <div class="footer-bar"></div>
+</div>
+
+<!-- SLIDE 17: Q&A -->
+<div class="slide-container" style="text-align: center; justify-content: center;">
+    <div class="logo-header">
+        <img src="https://imgix3.ruangguru.com/assets/miscellaneous/png_zekej2_3984.png" alt="Ruangguru">
+        <img src="https://imgix3.ruangguru.com/assets/miscellaneous/png_9kguln_7180.png" alt="Al Irsyad">
+    </div>
+    <div class="content-area">
+        <h2 style="font-size: 60px; color: #2c3e50; margin-bottom: 20px;">Sesi Tanya Jawab</h2>
+        <p style="font-size: 24px;">Mari diskusikan implementasi TKA di sekolah Anda.</p>
+        <div style="margin-top: 50px;">
+            <i class="fa-solid fa-comments" style="font-size: 80px; color: #3cb4e5;"></i>
+        </div>
+        <p style="margin-top: 40px; font-size: 18px; color: #7f8c8d;">Terima kasih atas perhatian Anda.</p>
+    </div>
+    <div class="footer-bar"></div>
+</div>
+
+</body>
+</html>
